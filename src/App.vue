@@ -6,8 +6,11 @@ import AdapterPattern from './patterns/AdapterPattern.vue'
 import DecoratorPattern from './patterns/DecoratorPattern.vue'
 import ObserverPattern from './patterns/ObserverPattern.vue'
 import VisitorPattern from './patterns/VisitorPattern.vue'
+import BuilderPattern from './patterns/BuilderPattern.vue'
+import ProxyPattern from './patterns/ProxyPattern.vue'
+import StrategyPattern from './patterns/StrategyPattern.vue'
 
-type PatternType = 'singleton' | 'factory' | 'adapter' | 'decorator' | 'observer' | 'visitor'
+type PatternType = 'singleton' | 'factory' | 'adapter' | 'decorator' | 'observer' | 'visitor' | 'builder' | 'proxy' | 'strategy'
 
 const currentPattern = ref<PatternType>('singleton')
 
@@ -17,7 +20,10 @@ const patterns = [
   { id: 'adapter' as PatternType, name: 'Adapter', icon: '🔌', disabled: false },
   { id: 'decorator' as PatternType, name: 'Decorator', icon: '🎨', disabled: false },
   { id: 'observer' as PatternType, name: 'Observer', icon: '👁️', disabled: false },
-  { id: 'visitor' as PatternType, name: 'Visitor', icon: '🚶', disabled: false }
+  { id: 'visitor' as PatternType, name: 'Visitor', icon: '🚶', disabled: false },
+  { id: 'builder' as PatternType, name: 'Builder', icon: '🏗️', disabled: false },
+  { id: 'proxy' as PatternType, name: 'Proxy', icon: '🛡️', disabled: false },
+  { id: 'strategy' as PatternType, name: 'Strategy', icon: '🎯', disabled: false }
 ]
 </script>
 
@@ -49,6 +55,9 @@ const patterns = [
       <DecoratorPattern v-else-if="currentPattern === 'decorator'" />
       <ObserverPattern v-else-if="currentPattern === 'observer'" />
       <VisitorPattern v-else-if="currentPattern === 'visitor'" />
+      <BuilderPattern v-else-if="currentPattern === 'builder'" />
+      <ProxyPattern v-else-if="currentPattern === 'proxy'" />
+      <StrategyPattern v-else-if="currentPattern === 'strategy'" />
     </main>
   </div>
 </template>
